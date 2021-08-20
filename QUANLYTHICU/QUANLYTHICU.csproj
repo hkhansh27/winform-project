@@ -74,6 +74,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmQuanTriHocSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanTriHocSinh.Designer.cs">
+      <DependentUpon>frmQuanTriHocSinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanTriMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanTriMonHoc.Designer.cs">
+      <DependentUpon>frmQuanTriMonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanTri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanTri.Designer.cs">
+      <DependentUpon>frmQuanTri.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,8 +100,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmQuanTri.resx">
+      <DependentUpon>frmQuanTri.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanTriHocSinh.resx">
+      <DependentUpon>frmQuanTriHocSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanTriMonHoc.resx">
+      <DependentUpon>frmQuanTriMonHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
