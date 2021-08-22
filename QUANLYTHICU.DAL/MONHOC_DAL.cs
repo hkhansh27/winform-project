@@ -17,20 +17,41 @@ namespace QUANLYTHICU.DAL
             }
 
         }
-        public bool KiemTraMonHoc(string tenMon, out string error)
+        public bool KiemTraMonHoc(string tenMonHoc, out string error)
         {
             error = string.Empty;
             try
             {
                 using (var dbcontext = new QUANLITHYCU())
                 {
-                    return dbcontext.MONHOCs.Any(mh => mh.MONHOC1 == tenMon);
+                    return dbcontext.MONHOCs.Any(mh => mh.MONHOC1 == tenMonHoc);
                 }
             }
             catch (Exception exception)
             {
                 error = exception.Message;
                 return false;
+            }
+        }
+        public bool CapNhatMonHoc(int idMonHoc, MONHOC monHoc ,out string error)
+        {
+            using (var db = new QUANLITHYCU())
+            {
+                error = string.Empty;
+                try
+                {
+                    var ketQua = db.MONHOCs.SingleOrDefault(mh => mh.IDMONHOC == idMonHoc);
+                    if (ketQua == null) return false;
+                    ketQua.MONHOC1 = monHoc.MONHOC1;
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    error = ex.Message;
+                    return false;
+                }
+                
             }
         }
         public bool TaoMoiMonHoc(MONHOC monHoc, out string error)

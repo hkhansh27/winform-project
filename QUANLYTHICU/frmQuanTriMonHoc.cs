@@ -1,5 +1,6 @@
 ﻿using QUANLYTHICU.BAL;
 using QUANLYTHICU.DAL;
+using QUANLYTHICU.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,66 +25,86 @@ namespace QUANLYTHICU
         }
         private void TaiDanhSachMonHoc()
         {
-            int soThuTu = 1;
+            int soThuTu = 1; 
             dgvDanhSachMonHoc.Rows.Clear();
             var danhSachMonHoc = _monHocBAL.LayDanhSachMonHoc();
+            //Kiểm tra danh sách rỗng
+            if (danhSachMonHoc.Count <= 0) return;
+            //Đổ dữ liệu ra bảng
             foreach (var mh in danhSachMonHoc)
             {
-                
                 int indexRow = dgvDanhSachMonHoc.Rows.Add();
                 dgvDanhSachMonHoc.Rows[indexRow].Cells[0].Value = soThuTu++;
                 dgvDanhSachMonHoc.Rows[indexRow].Cells[1].Value = mh.MONHOC1;
                 dgvDanhSachMonHoc.Rows[indexRow].Cells[2].Value = mh.IDMONHOC;
             }
+            dgvDanhSachMonHoc.Rows[0].Selected = true;
+            txtTenMon.Text = dgvDanhSachMonHoc.Rows[0].Cells[1].FormattedValue.ToString();
+            idMonHoc = int.Parse(dgvDanhSachMonHoc.Rows[0].Cells[2].FormattedValue.ToString());
+
+        }
+        private void dgvDanhSachMonHoc_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvDanhSachMonHoc.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                dgvDanhSachMonHoc.CurrentRow.Selected = true;
+                txtTenMon.Text = dgvDanhSachMonHoc.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
+                idMonHoc = int.Parse(dgvDanhSachMonHoc.Rows[e.RowIndex].Cells[2].FormattedValue.ToString());
+            }
         }
         private void btnThemSuaMonHoc_Click(object sender, EventArgs e)
         {
             string error;
-            string tinNhan = "Lưu thành công!";
-            //Kiểm tra môn học đã tồn tại trước khi thêm
-            if (_monHocBAL.KiemTraMonHoc(txtTenMon.Text, out error))
-            {
-                DialogResult kq = MessageBox.Show("Môn học đã tồn tại! Bạn có muốn sửa?", "Lưu môn học", MessageBoxButtons.YesNo);
-                return;
-                // tinNhan = "Sửa thành công!";
-                //if (kq == DialogResult.No) return ;
-            }
-            MONHOC monHoc = new MONHOC();
-            monHoc.MONHOC1 = txtTenMon.Text;
-            //Thêm môn học vào db
-            _monHocBAL.LuuMonHoc(monHoc, out error);
-            //Tải danh sách môn học
-            TaiDanhSachMonHoc();
-            MessageBox.Show(tinNhan, "Lưu môn học"); 
-        }
-        private void dgvDanhSachMonHoc_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
             try
             {
-                if (dgvDanhSachMonHoc.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                MONHOC monHoc = new MONHOC();
+                //Kiểm tra môn học đã tồn tại trước khi thêm
+                if (_monHocBAL.KiemTraMonHoc(txtTenMon.Text, out error))
                 {
-                    dgvDanhSachMonHoc.CurrentRow.Selected = true;
-                    txtTenMon.Text = dgvDanhSachMonHoc.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
-                    idMonHoc = int.Parse(dgvDanhSachMonHoc.Rows[e.RowIndex].Cells[2].FormattedValue.ToString());
+                    string tenMonMoi = Prompt.ShowDialog("Vui lòng nhập tên môn mà bạn muốn sửa", "Sửa môn học");
+                    monHoc.MONHOC1 = tenMonMoi;
+
+                    if (_monHocBAL.CapNhatMonHoc(idMonHoc, monHoc, out error))
+                        MessageBox.Show("Cập nhật!", "Sửa môn học");
+                    return;
                 }
+                monHoc.MONHOC1 = txtTenMon.Text;
+                //Thêm môn học vào db
+                _monHocBAL.LuuMonHoc(monHoc, out error);
+                //Tải lại danh sách
+                TaiDanhSachMonHoc();
+                MessageBox.Show("Lưu thành công!", "Lưu môn học");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Có vẻ bạn chọn sai chỗ!", "Lỗi xảy ra", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                error = ex.Message;
+                MessageBox.Show(error, "Có lỗi xảy ra!");
             }
         }
-
         private void btnXoaMonHoc_Click(object sender, EventArgs e)
         {
             string error;
-            if(idMonHoc == 0) { MessageBox.Show("Rỗng, không xoá được!", "Xoá môn học"); return; }
-            _monHocBAL.XoaMonHoc(idMonHoc, out error);
-            idMonHoc = 0; 
-            //Tải danh sách môn học
-            TaiDanhSachMonHoc();
-            MessageBox.Show("Xoá thành công!", "Xoá môn học");
-
+            try
+            {
+                if (idMonHoc == 0) { MessageBox.Show("Rỗng, không xoá được!", "Xoá môn học"); return; }
+                _monHocBAL.XoaMonHoc(idMonHoc, out error);
+                idMonHoc = 0;
+                //Tải lại danh sách
+                TaiDanhSachMonHoc();
+                MessageBox.Show("Xoá thành công!", "Xoá môn học");
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                MessageBox.Show(error, "Có lỗi xảy ra!");
+            }
         }
+        private void btnLamMoiMonHoc_Click(object sender, EventArgs e)
+        {
+            txtTenMon.Text = "";
+            TaiDanhSachMonHoc();
+        }
+
     }
 }
 

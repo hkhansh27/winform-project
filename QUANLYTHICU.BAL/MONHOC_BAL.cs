@@ -15,17 +15,22 @@ namespace QUANLYTHICU.BAL
         {
             _monHocDAL = new MONHOC_DAL();
         }
+
         public List<MONHOC> LayDanhSachMonHoc()
         {
             return _monHocDAL.LayDanhSachMonHoc();
         }
-        public bool KiemTraMonHoc(string tenMon, out string error)
+        public bool KiemTraMonHoc(string tenMonHoc, out string error)
         {
-            return _monHocDAL.KiemTraMonHoc(tenMon, out error);
+            return _monHocDAL.KiemTraMonHoc(tenMonHoc, out error);
         }
         public bool LuuMonHoc(MONHOC monHoc, out string error)
         {
             return _monHocDAL.TaoMoiMonHoc(monHoc, out error);
+        }
+        public bool CapNhatMonHoc(int idMonHoc, MONHOC monHoc, out string error)
+        {
+            return _monHocDAL.CapNhatMonHoc(idMonHoc, monHoc, out error);
         }
         public bool XoaMonHoc(int idMonHoc, out string error)
         {
