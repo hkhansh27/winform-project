@@ -41,6 +41,9 @@ namespace QUANLYTHICU
             this.btnThemSuaMonHoc = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvDanhSachMonHoc = new System.Windows.Forms.DataGridView();
+            this.stt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenMon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachMonHoc)).BeginInit();
             this.SuspendLayout();
@@ -137,6 +140,7 @@ namespace QUANLYTHICU
             this.btnXoaMonHoc.TabIndex = 23;
             this.btnXoaMonHoc.Text = "Xoá";
             this.btnXoaMonHoc.UseVisualStyleBackColor = false;
+            this.btnXoaMonHoc.Click += new System.EventHandler(this.btnXoaMonHoc_Click);
             // 
             // btnThemSuaMonHoc
             // 
@@ -149,6 +153,7 @@ namespace QUANLYTHICU
             this.btnThemSuaMonHoc.TabIndex = 22;
             this.btnThemSuaMonHoc.Text = "Thêm/Sửa";
             this.btnThemSuaMonHoc.UseVisualStyleBackColor = false;
+            this.btnThemSuaMonHoc.Click += new System.EventHandler(this.btnThemSuaMonHoc_Click);
             // 
             // label5
             // 
@@ -162,12 +167,35 @@ namespace QUANLYTHICU
             // 
             // dgvDanhSachMonHoc
             // 
+            this.dgvDanhSachMonHoc.AllowUserToAddRows = false;
+            this.dgvDanhSachMonHoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDanhSachMonHoc.BackgroundColor = System.Drawing.Color.Khaki;
             this.dgvDanhSachMonHoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDanhSachMonHoc.Location = new System.Drawing.Point(-53, 352);
+            this.dgvDanhSachMonHoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.stt,
+            this.tenMon,
+            this.idMH});
+            this.dgvDanhSachMonHoc.Location = new System.Drawing.Point(2, 264);
             this.dgvDanhSachMonHoc.Name = "dgvDanhSachMonHoc";
-            this.dgvDanhSachMonHoc.Size = new System.Drawing.Size(1675, 556);
+            this.dgvDanhSachMonHoc.Size = new System.Drawing.Size(1345, 556);
             this.dgvDanhSachMonHoc.TabIndex = 26;
+            this.dgvDanhSachMonHoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachMonHoc_CellClick);
+            // 
+            // stt
+            // 
+            this.stt.HeaderText = "STT";
+            this.stt.Name = "stt";
+            // 
+            // tenMon
+            // 
+            this.tenMon.HeaderText = "Tên môn";
+            this.tenMon.Name = "tenMon";
+            // 
+            // idMH
+            // 
+            this.idMH.HeaderText = "ID Môn học";
+            this.idMH.Name = "idMH";
+            this.idMH.Visible = false;
             // 
             // frmQuanTriMonHoc
             // 
@@ -209,5 +237,8 @@ namespace QUANLYTHICU
         private System.Windows.Forms.Button btnThemSuaMonHoc;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvDanhSachMonHoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenMon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idMH;
     }
 }

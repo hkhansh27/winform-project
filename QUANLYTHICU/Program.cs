@@ -16,7 +16,7 @@ namespace QUANLYTHICU
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmQuanTriHocSinh());
+            Application.Run(new frmQuanTriMonHoc());
         }
     }
 }
