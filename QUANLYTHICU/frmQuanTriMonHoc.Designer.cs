@@ -63,6 +63,7 @@ namespace QUANLYTHICU
             // lblCauHoiNavigation
             // 
             this.lblCauHoiNavigation.AutoSize = true;
+            this.lblCauHoiNavigation.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblCauHoiNavigation.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lblCauHoiNavigation.Location = new System.Drawing.Point(479, 15);
             this.lblCauHoiNavigation.Name = "lblCauHoiNavigation";
@@ -73,12 +74,14 @@ namespace QUANLYTHICU
             // lblHocSinhNavigation
             // 
             this.lblHocSinhNavigation.AutoSize = true;
+            this.lblHocSinhNavigation.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblHocSinhNavigation.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lblHocSinhNavigation.Location = new System.Drawing.Point(752, 15);
             this.lblHocSinhNavigation.Name = "lblHocSinhNavigation";
             this.lblHocSinhNavigation.Size = new System.Drawing.Size(108, 24);
             this.lblHocSinhNavigation.TabIndex = 3;
             this.lblHocSinhNavigation.Text = "HỌC SINH";
+            this.lblHocSinhNavigation.Click += new System.EventHandler(this.lblHocSinhNavigation_Click);
             // 
             // lblMonHocNavigation
             // 
@@ -205,7 +208,7 @@ namespace QUANLYTHICU
             this.dgvDanhSachMonHoc.Size = new System.Drawing.Size(1345, 556);
             this.dgvDanhSachMonHoc.TabIndex = 26;
             this.dgvDanhSachMonHoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachMonHoc_CellClick);
-          
+           
             // 
             // stt
             // 
@@ -245,6 +248,7 @@ namespace QUANLYTHICU
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "frmQuanTriMonHoc";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QUẢN TRỊ";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

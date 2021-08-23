@@ -10,12 +10,16 @@ using System.Windows.Forms;
 
 namespace QUANLYTHICU
 {
-    public partial class frmQuanTri : Form
+    public partial class frmQuanTriCauHoi : Form
     {
-        public frmQuanTri()
+        public frmQuanTriCauHoi()
         {
             InitializeComponent();
         }
 
+        private void lblMonHocNavigation_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

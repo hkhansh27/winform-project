@@ -57,11 +57,12 @@
     <Compile Include="THUCTHE\CHITIETCAUHOI.cs" />
     <Compile Include="THUCTHE\CHITIETMONHOC.cs" />
     <Compile Include="THUCTHE\HOCSINH.cs" />
-    <Compile Include="QUANLITHYCU.cs" />
+    <Compile Include="HOCSINH_DAL.cs" />
     <Compile Include="THUCTHE\MONHOC.cs" />
     <Compile Include="THUCTHE\NGUOIQUANLY.cs" />
     <Compile Include="MONHOC_DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QUANLITHYCU.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

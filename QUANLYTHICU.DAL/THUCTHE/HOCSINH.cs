@@ -21,6 +21,10 @@ namespace QUANLYTHICU.DAL
 
         [Required]
         [StringLength(50)]
+        public string HOTEN { get; set; }
+
+        [Required]
+        [StringLength(50)]
         public string TENDANGNHAP { get; set; }
 
         [Required]

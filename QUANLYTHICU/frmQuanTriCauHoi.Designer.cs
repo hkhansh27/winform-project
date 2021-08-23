@@ -1,7 +1,7 @@
 ﻿
 namespace QUANLYTHICU
 {
-    partial class frmQuanTri
+    partial class frmQuanTriCauHoi
     {
         /// <summary>
         /// Required designer variable.
@@ -34,6 +34,9 @@ namespace QUANLYTHICU
             this.lblHocSinhNavigation = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnLamMoiCauHoi = new System.Windows.Forms.Button();
+            this.btnXoaCauHoi = new System.Windows.Forms.Button();
+            this.btnThemSuaCauHoi = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtDapAn = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -53,9 +56,6 @@ namespace QUANLYTHICU
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvDanhSachCauHoi = new System.Windows.Forms.DataGridView();
-            this.btnThemSuaCauHoi = new System.Windows.Forms.Button();
-            this.btnXoaCauHoi = new System.Windows.Forms.Button();
-            this.btnLamMoiCauHoi = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachCauHoi)).BeginInit();
@@ -80,6 +80,7 @@ namespace QUANLYTHICU
             this.lblMonHocNavigation.Size = new System.Drawing.Size(108, 24);
             this.lblMonHocNavigation.TabIndex = 2;
             this.lblMonHocNavigation.Text = "MÔN HỌC";
+            this.lblMonHocNavigation.Click += new System.EventHandler(this.lblMonHocNavigation_Click);
             // 
             // lblHocSinhNavigation
             // 
@@ -125,6 +126,42 @@ namespace QUANLYTHICU
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1345, 243);
             this.panel2.TabIndex = 5;
+            // 
+            // btnLamMoiCauHoi
+            // 
+            this.btnLamMoiCauHoi.BackColor = System.Drawing.Color.White;
+            this.btnLamMoiCauHoi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLamMoiCauHoi.Location = new System.Drawing.Point(749, 212);
+            this.btnLamMoiCauHoi.Margin = new System.Windows.Forms.Padding(1);
+            this.btnLamMoiCauHoi.Name = "btnLamMoiCauHoi";
+            this.btnLamMoiCauHoi.Size = new System.Drawing.Size(150, 30);
+            this.btnLamMoiCauHoi.TabIndex = 21;
+            this.btnLamMoiCauHoi.Text = "Làm mới";
+            this.btnLamMoiCauHoi.UseVisualStyleBackColor = false;
+            // 
+            // btnXoaCauHoi
+            // 
+            this.btnXoaCauHoi.BackColor = System.Drawing.Color.White;
+            this.btnXoaCauHoi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnXoaCauHoi.Location = new System.Drawing.Point(568, 213);
+            this.btnXoaCauHoi.Margin = new System.Windows.Forms.Padding(1);
+            this.btnXoaCauHoi.Name = "btnXoaCauHoi";
+            this.btnXoaCauHoi.Size = new System.Drawing.Size(150, 30);
+            this.btnXoaCauHoi.TabIndex = 20;
+            this.btnXoaCauHoi.Text = "Xoá";
+            this.btnXoaCauHoi.UseVisualStyleBackColor = false;
+            // 
+            // btnThemSuaCauHoi
+            // 
+            this.btnThemSuaCauHoi.BackColor = System.Drawing.Color.White;
+            this.btnThemSuaCauHoi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnThemSuaCauHoi.Location = new System.Drawing.Point(390, 212);
+            this.btnThemSuaCauHoi.Margin = new System.Windows.Forms.Padding(1);
+            this.btnThemSuaCauHoi.Name = "btnThemSuaCauHoi";
+            this.btnThemSuaCauHoi.Size = new System.Drawing.Size(150, 30);
+            this.btnThemSuaCauHoi.TabIndex = 19;
+            this.btnThemSuaCauHoi.Text = "Thêm/Sửa";
+            this.btnThemSuaCauHoi.UseVisualStyleBackColor = false;
             // 
             // panel7
             // 
@@ -308,43 +345,7 @@ namespace QUANLYTHICU
             this.dgvDanhSachCauHoi.Size = new System.Drawing.Size(1424, 425);
             this.dgvDanhSachCauHoi.TabIndex = 22;
             // 
-            // btnThemSuaCauHoi
-            // 
-            this.btnThemSuaCauHoi.BackColor = System.Drawing.Color.White;
-            this.btnThemSuaCauHoi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnThemSuaCauHoi.Location = new System.Drawing.Point(390, 212);
-            this.btnThemSuaCauHoi.Margin = new System.Windows.Forms.Padding(1);
-            this.btnThemSuaCauHoi.Name = "btnThemSuaCauHoi";
-            this.btnThemSuaCauHoi.Size = new System.Drawing.Size(150, 30);
-            this.btnThemSuaCauHoi.TabIndex = 19;
-            this.btnThemSuaCauHoi.Text = "Thêm/Sửa";
-            this.btnThemSuaCauHoi.UseVisualStyleBackColor = false;
-            // 
-            // btnXoaCauHoi
-            // 
-            this.btnXoaCauHoi.BackColor = System.Drawing.Color.White;
-            this.btnXoaCauHoi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnXoaCauHoi.Location = new System.Drawing.Point(568, 213);
-            this.btnXoaCauHoi.Margin = new System.Windows.Forms.Padding(1);
-            this.btnXoaCauHoi.Name = "btnXoaCauHoi";
-            this.btnXoaCauHoi.Size = new System.Drawing.Size(150, 30);
-            this.btnXoaCauHoi.TabIndex = 20;
-            this.btnXoaCauHoi.Text = "Xoá";
-            this.btnXoaCauHoi.UseVisualStyleBackColor = false;
-            // 
-            // btnLamMoiCauHoi
-            // 
-            this.btnLamMoiCauHoi.BackColor = System.Drawing.Color.White;
-            this.btnLamMoiCauHoi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLamMoiCauHoi.Location = new System.Drawing.Point(749, 212);
-            this.btnLamMoiCauHoi.Margin = new System.Windows.Forms.Padding(1);
-            this.btnLamMoiCauHoi.Name = "btnLamMoiCauHoi";
-            this.btnLamMoiCauHoi.Size = new System.Drawing.Size(150, 30);
-            this.btnLamMoiCauHoi.TabIndex = 21;
-            this.btnLamMoiCauHoi.Text = "Làm mới";
-            this.btnLamMoiCauHoi.UseVisualStyleBackColor = false;
-            // 
-            // frmQuanTri
+            // frmQuanTriCauHoi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -357,7 +358,7 @@ namespace QUANLYTHICU
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Name = "frmQuanTri";
+            this.Name = "frmQuanTriCauHoi";
             this.Text = "QUẢN TRỊ";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

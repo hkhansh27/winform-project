@@ -14,6 +14,8 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -29,8 +31,6 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -96,11 +96,11 @@
     <Compile Include="frmQuanTriMonHoc.Designer.cs">
       <DependentUpon>frmQuanTriMonHoc.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmQuanTri.cs">
+    <Compile Include="frmQuanTriCauHoi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmQuanTri.Designer.cs">
-      <DependentUpon>frmQuanTri.cs</DependentUpon>
+    <Compile Include="frmQuanTriCauHoi.Designer.cs">
+      <DependentUpon>frmQuanTriCauHoi.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
@@ -111,8 +111,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\Prompt.cs" />
-    <EmbeddedResource Include="frmQuanTri.resx">
-      <DependentUpon>frmQuanTri.cs</DependentUpon>
+    <EmbeddedResource Include="frmQuanTriCauHoi.resx">
+      <DependentUpon>frmQuanTriCauHoi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>

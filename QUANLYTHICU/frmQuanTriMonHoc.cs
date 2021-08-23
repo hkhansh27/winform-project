@@ -21,8 +21,15 @@ namespace QUANLYTHICU
         {
             InitializeComponent();
             _monHocBAL = new MONHOC_BAL();
-            TaiDanhSachMonHoc();
+            Load += FrmQuanTriMonHoc_Load;
+            
         }
+
+        private void FrmQuanTriMonHoc_Load(object sender, EventArgs e)
+        {
+            btnLamMoiMonHoc.PerformClick();
+        }
+
         private void TaiDanhSachMonHoc()
         {
             int soThuTu = 1; 
@@ -38,9 +45,7 @@ namespace QUANLYTHICU
                 dgvDanhSachMonHoc.Rows[indexRow].Cells[1].Value = mh.MONHOC1;
                 dgvDanhSachMonHoc.Rows[indexRow].Cells[2].Value = mh.IDMONHOC;
             }
-            dgvDanhSachMonHoc.Rows[0].Selected = true;
-            txtTenMon.Text = dgvDanhSachMonHoc.Rows[0].Cells[1].FormattedValue.ToString();
-            idMonHoc = int.Parse(dgvDanhSachMonHoc.Rows[0].Cells[2].FormattedValue.ToString());
+            dgvDanhSachMonHoc.Rows[0].Selected = false;
 
         }
         private void dgvDanhSachMonHoc_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -66,6 +71,7 @@ namespace QUANLYTHICU
 
                     if (_monHocBAL.CapNhatMonHoc(idMonHoc, monHoc, out error))
                         MessageBox.Show("Cập nhật!", "Sửa môn học");
+                    TaiDanhSachMonHoc();
                     return;
                 }
                 monHoc.MONHOC1 = txtTenMon.Text;
@@ -105,6 +111,17 @@ namespace QUANLYTHICU
             TaiDanhSachMonHoc();
         }
 
+        private void lblHocSinhNavigation_Click(object sender, EventArgs e)
+        {
+            frmQuanTriHocSinh frmQuanTriHocSinh = new frmQuanTriHocSinh();
+
+            
+            this.Hide();
+            frmQuanTriHocSinh.ShowDialog();
+            this.Close();
+            //frmQuanTriHocSinh.Show();
+            
+        }
     }
 }
 
