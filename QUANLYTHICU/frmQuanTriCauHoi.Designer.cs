@@ -29,6 +29,8 @@ namespace QUANLYTHICU
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblCauHoiNavigation = new System.Windows.Forms.Label();
             this.lblMonHocNavigation = new System.Windows.Forms.Label();
             this.lblHocSinhNavigation = new System.Windows.Forms.Label();
@@ -52,10 +54,18 @@ namespace QUANLYTHICU
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtCauHoi = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbMonHoc = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvDanhSachCauHoi = new System.Windows.Forms.DataGridView();
+            this.stt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cauHoi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.traLoi1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.traLoi2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.traLoi3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dapAn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachCauHoi)).BeginInit();
@@ -91,6 +101,7 @@ namespace QUANLYTHICU
             this.lblHocSinhNavigation.Size = new System.Drawing.Size(108, 24);
             this.lblHocSinhNavigation.TabIndex = 3;
             this.lblHocSinhNavigation.Text = "HỌC SINH";
+            this.lblHocSinhNavigation.Click += new System.EventHandler(this.lblHocSinhNavigation_Click);
             // 
             // panel1
             // 
@@ -138,6 +149,7 @@ namespace QUANLYTHICU
             this.btnLamMoiCauHoi.TabIndex = 21;
             this.btnLamMoiCauHoi.Text = "Làm mới";
             this.btnLamMoiCauHoi.UseVisualStyleBackColor = false;
+            this.btnLamMoiCauHoi.Click += new System.EventHandler(this.btnLamMoiCauHoi_Click);
             // 
             // btnXoaCauHoi
             // 
@@ -150,6 +162,7 @@ namespace QUANLYTHICU
             this.btnXoaCauHoi.TabIndex = 20;
             this.btnXoaCauHoi.Text = "Xoá";
             this.btnXoaCauHoi.UseVisualStyleBackColor = false;
+            this.btnXoaCauHoi.Click += new System.EventHandler(this.btnXoaCauHoi_Click);
             // 
             // btnThemSuaCauHoi
             // 
@@ -162,6 +175,7 @@ namespace QUANLYTHICU
             this.btnThemSuaCauHoi.TabIndex = 19;
             this.btnThemSuaCauHoi.Text = "Thêm/Sửa";
             this.btnThemSuaCauHoi.UseVisualStyleBackColor = false;
+            this.btnThemSuaCauHoi.Click += new System.EventHandler(this.btnThemSuaCauHoi_Click);
             // 
             // panel7
             // 
@@ -176,6 +190,7 @@ namespace QUANLYTHICU
             // 
             this.txtDapAn.BackColor = System.Drawing.Color.Gold;
             this.txtDapAn.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDapAn.Font = new System.Drawing.Font("Arial", 12F);
             this.txtDapAn.Location = new System.Drawing.Point(91, 183);
             this.txtDapAn.Multiline = true;
             this.txtDapAn.Name = "txtDapAn";
@@ -205,6 +220,7 @@ namespace QUANLYTHICU
             // 
             this.txtTraLoi3.BackColor = System.Drawing.Color.Gold;
             this.txtTraLoi3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTraLoi3.Font = new System.Drawing.Font("Arial", 12F);
             this.txtTraLoi3.Location = new System.Drawing.Point(91, 147);
             this.txtTraLoi3.Multiline = true;
             this.txtTraLoi3.Name = "txtTraLoi3";
@@ -234,6 +250,7 @@ namespace QUANLYTHICU
             // 
             this.txtTraLoi2.BackColor = System.Drawing.Color.Gold;
             this.txtTraLoi2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTraLoi2.Font = new System.Drawing.Font("Arial", 12F);
             this.txtTraLoi2.Location = new System.Drawing.Point(91, 108);
             this.txtTraLoi2.Multiline = true;
             this.txtTraLoi2.Name = "txtTraLoi2";
@@ -263,6 +280,7 @@ namespace QUANLYTHICU
             // 
             this.txtTraLoi1.BackColor = System.Drawing.Color.Gold;
             this.txtTraLoi1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTraLoi1.Font = new System.Drawing.Font("Arial", 12F);
             this.txtTraLoi1.Location = new System.Drawing.Point(91, 66);
             this.txtTraLoi1.Multiline = true;
             this.txtTraLoi1.Name = "txtTraLoi1";
@@ -292,6 +310,7 @@ namespace QUANLYTHICU
             // 
             this.txtCauHoi.BackColor = System.Drawing.Color.Gold;
             this.txtCauHoi.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCauHoi.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtCauHoi.Location = new System.Drawing.Point(91, 22);
             this.txtCauHoi.Multiline = true;
             this.txtCauHoi.Name = "txtCauHoi";
@@ -308,13 +327,14 @@ namespace QUANLYTHICU
             this.label1.TabIndex = 0;
             this.label1.Text = "Câu hỏi";
             // 
-            // comboBox1
+            // cbMonHoc
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(1166, 82);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 19;
+            this.cbMonHoc.FormattingEnabled = true;
+            this.cbMonHoc.Location = new System.Drawing.Point(1166, 82);
+            this.cbMonHoc.Name = "cbMonHoc";
+            this.cbMonHoc.Size = new System.Drawing.Size(121, 21);
+            this.cbMonHoc.TabIndex = 19;
+            this.cbMonHoc.SelectionChangeCommitted += new System.EventHandler(this.cbMonHoc_SelectionChangeCommitted);
             // 
             // label4
             // 
@@ -338,12 +358,98 @@ namespace QUANLYTHICU
             // 
             // dgvDanhSachCauHoi
             // 
+            this.dgvDanhSachCauHoi.AllowUserToAddRows = false;
+            this.dgvDanhSachCauHoi.AllowUserToDeleteRows = false;
+            this.dgvDanhSachCauHoi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDanhSachCauHoi.BackgroundColor = System.Drawing.Color.Khaki;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDanhSachCauHoi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDanhSachCauHoi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDanhSachCauHoi.Location = new System.Drawing.Point(-10, 403);
+            this.dgvDanhSachCauHoi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.stt,
+            this.cauHoi,
+            this.traLoi1,
+            this.traLoi2,
+            this.traLoi3,
+            this.dapAn,
+            this.idCH,
+            this.IDMH});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ScrollBar;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDanhSachCauHoi.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvDanhSachCauHoi.Location = new System.Drawing.Point(-1, 403);
             this.dgvDanhSachCauHoi.Name = "dgvDanhSachCauHoi";
-            this.dgvDanhSachCauHoi.Size = new System.Drawing.Size(1424, 425);
+            this.dgvDanhSachCauHoi.ReadOnly = true;
+            this.dgvDanhSachCauHoi.Size = new System.Drawing.Size(1352, 425);
             this.dgvDanhSachCauHoi.TabIndex = 22;
+            this.dgvDanhSachCauHoi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachCauHoi_CellClick);
+            // 
+            // stt
+            // 
+            this.stt.FillWeight = 50.76142F;
+            this.stt.HeaderText = "STT";
+            this.stt.Name = "stt";
+            this.stt.ReadOnly = true;
+            // 
+            // cauHoi
+            // 
+            this.cauHoi.FillWeight = 149.2386F;
+            this.cauHoi.HeaderText = "Câu hỏi";
+            this.cauHoi.Name = "cauHoi";
+            this.cauHoi.ReadOnly = true;
+            // 
+            // traLoi1
+            // 
+            this.traLoi1.FillWeight = 149.2386F;
+            this.traLoi1.HeaderText = "Trả lời 1";
+            this.traLoi1.Name = "traLoi1";
+            this.traLoi1.ReadOnly = true;
+            // 
+            // traLoi2
+            // 
+            this.traLoi2.FillWeight = 149.2386F;
+            this.traLoi2.HeaderText = "Trả lời 2";
+            this.traLoi2.Name = "traLoi2";
+            this.traLoi2.ReadOnly = true;
+            // 
+            // traLoi3
+            // 
+            this.traLoi3.FillWeight = 149.2386F;
+            this.traLoi3.HeaderText = "Trả lời 3";
+            this.traLoi3.Name = "traLoi3";
+            this.traLoi3.ReadOnly = true;
+            // 
+            // dapAn
+            // 
+            this.dapAn.FillWeight = 149.2386F;
+            this.dapAn.HeaderText = "Đáp án";
+            this.dapAn.Name = "dapAn";
+            this.dapAn.ReadOnly = true;
+            // 
+            // idCH
+            // 
+            this.idCH.HeaderText = "IDCH";
+            this.idCH.Name = "idCH";
+            this.idCH.ReadOnly = true;
+            this.idCH.Visible = false;
+            // 
+            // IDMH
+            // 
+            this.IDMH.HeaderText = "IDMH";
+            this.IDMH.Name = "IDMH";
+            this.IDMH.ReadOnly = true;
+            this.IDMH.Visible = false;
             // 
             // frmQuanTriCauHoi
             // 
@@ -354,12 +460,14 @@ namespace QUANLYTHICU
             this.Controls.Add(this.dgvDanhSachCauHoi);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbMonHoc);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "frmQuanTriCauHoi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QUẢN TRỊ";
+            this.Load += new System.EventHandler(this.frmQuanTriCauHoi_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -392,12 +500,20 @@ namespace QUANLYTHICU
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox txtTraLoi3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbMonHoc;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvDanhSachCauHoi;
         private System.Windows.Forms.Button btnXoaCauHoi;
         private System.Windows.Forms.Button btnThemSuaCauHoi;
         private System.Windows.Forms.Button btnLamMoiCauHoi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cauHoi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn traLoi1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn traLoi2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn traLoi3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dapAn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDMH;
     }
 }

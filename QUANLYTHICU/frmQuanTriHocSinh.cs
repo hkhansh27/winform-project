@@ -124,13 +124,20 @@ namespace QUANLYTHICU
             TaiDanhSachHocSinh();
         }
 
-        /*private void lblHocSinhNavigation_Click(object sender, EventArgs e)
+        private void lblMonHocNavigation_Click(object sender, EventArgs e)
         {
-            frmQuanTriHocSinh frmQuanTriHocSinh = new frmQuanTriHocSinh();
+            frmQuanTriMonHoc frmQuanTriMonHoc = new frmQuanTriMonHoc();
             this.Hide();
-            frmQuanTriHocSinh.ShowDialog();
+            frmQuanTriMonHoc.ShowDialog();
             this.Close();
-            //frmQuanTriHocSinh.Show();
-        }*/
+        }
+        private void lblCauHoiNavigation_Click(object sender, EventArgs e)
+        {
+            frmQuanTriCauHoi frmQuanTriCauHoi = new frmQuanTriCauHoi();
+            this.Hide();
+            frmQuanTriCauHoi.ShowDialog();
+            this.Close();
+        }
+
     }
 }

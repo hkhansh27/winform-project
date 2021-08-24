@@ -22,7 +22,6 @@ namespace QUANLYTHICU
             InitializeComponent();
             _monHocBAL = new MONHOC_BAL();
             Load += FrmQuanTriMonHoc_Load;
-            
         }
 
         private void FrmQuanTriMonHoc_Load(object sender, EventArgs e)
@@ -35,6 +34,7 @@ namespace QUANLYTHICU
             int soThuTu = 1; 
             dgvDanhSachMonHoc.Rows.Clear();
             var danhSachMonHoc = _monHocBAL.LayDanhSachMonHoc();
+            
             //Kiểm tra danh sách rỗng
             if (danhSachMonHoc.Count <= 0) return;
             //Đổ dữ liệu ra bảng
@@ -46,7 +46,6 @@ namespace QUANLYTHICU
                 dgvDanhSachMonHoc.Rows[indexRow].Cells[2].Value = mh.IDMONHOC;
             }
             dgvDanhSachMonHoc.Rows[0].Selected = false;
-
         }
         private void dgvDanhSachMonHoc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -114,13 +113,17 @@ namespace QUANLYTHICU
         private void lblHocSinhNavigation_Click(object sender, EventArgs e)
         {
             frmQuanTriHocSinh frmQuanTriHocSinh = new frmQuanTriHocSinh();
-
-            
             this.Hide();
             frmQuanTriHocSinh.ShowDialog();
             this.Close();
-            //frmQuanTriHocSinh.Show();
-            
+        }
+
+        private void lblCauHoiNavigation_Click(object sender, EventArgs e)
+        {
+            frmQuanTriCauHoi frmQuanTriCauHoi = new frmQuanTriCauHoi();
+            this.Hide();
+            frmQuanTriCauHoi.ShowDialog();
+            this.Close();
         }
     }
 }

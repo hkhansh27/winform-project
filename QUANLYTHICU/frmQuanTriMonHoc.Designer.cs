@@ -70,6 +70,7 @@ namespace QUANLYTHICU
             this.lblCauHoiNavigation.Size = new System.Drawing.Size(95, 24);
             this.lblCauHoiNavigation.TabIndex = 0;
             this.lblCauHoiNavigation.Text = "CÂU HỎI";
+            this.lblCauHoiNavigation.Click += new System.EventHandler(this.lblCauHoiNavigation_Click);
             // 
             // lblHocSinhNavigation
             // 
@@ -106,6 +107,7 @@ namespace QUANLYTHICU
             // 
             this.txtTenMon.BackColor = System.Drawing.Color.Gold;
             this.txtTenMon.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTenMon.Font = new System.Drawing.Font("Arial", 12F);
             this.txtTenMon.Location = new System.Drawing.Point(528, 132);
             this.txtTenMon.Multiline = true;
             this.txtTenMon.Name = "txtTenMon";
@@ -208,7 +210,6 @@ namespace QUANLYTHICU
             this.dgvDanhSachMonHoc.Size = new System.Drawing.Size(1345, 556);
             this.dgvDanhSachMonHoc.TabIndex = 26;
             this.dgvDanhSachMonHoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachMonHoc_CellClick);
-           
             // 
             // stt
             // 

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HOCSINH_BAL.cs" />
+    <Compile Include="CAUHOI_BAL.cs" />
     <Compile Include="MONHOC_BAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
