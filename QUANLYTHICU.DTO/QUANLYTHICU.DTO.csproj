@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{933E9476-7F67-4C2C-8DC8-001C88AD8545}</ProjectGuid>
+    <ProjectGuid>{C9B6176A-2F82-4125-AF9E-28E276CB3963}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>QUANLYTHICU.BAL</RootNamespace>
-    <AssemblyName>QUANLYTHICU.BAL</AssemblyName>
+    <RootNamespace>QUANLYTHICU.DTO</RootNamespace>
+    <AssemblyName>QUANLYTHICU.DTO</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,23 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CHITIETMONHOC_BAL.cs" />
-    <Compile Include="CHITIETCAUHOI_BAL.cs" />
-    <Compile Include="NGUOIQUANLY_BAL.cs" />
-    <Compile Include="HOCSINH_BAL.cs" />
-    <Compile Include="CAUHOI_BAL.cs" />
-    <Compile Include="MONHOC_BAL.cs" />
+    <Compile Include="KETQUA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\QUANLYTHICU.DAL\QUANLYTHICU.DAL.csproj">
-      <Project>{b1132f9f-64f6-42e1-9a10-6fdde969a2a4}</Project>
-      <Name>QUANLYTHICU.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\QUANLYTHICU.DTO\QUANLYTHICU.DTO.csproj">
-      <Project>{c9b6176a-2f82-4125-af9e-28e276cb3963}</Project>
-      <Name>QUANLYTHICU.DTO</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

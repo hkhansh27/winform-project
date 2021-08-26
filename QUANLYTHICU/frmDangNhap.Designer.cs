@@ -29,35 +29,36 @@ namespace QUANLYTHICU
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TextBox txtMatKhau;
+            this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.lblTiêuđề = new System.Windows.Forms.Label();
             this.txtTenDangNhap = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDangnhap = new System.Windows.Forms.Button();
-            txtMatKhau = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbMonThi = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtMatKhau
             // 
-            txtMatKhau.BackColor = System.Drawing.Color.Snow;
-            txtMatKhau.Location = new System.Drawing.Point(281, 338);
-            txtMatKhau.Name = "txtMatKhau";
-            txtMatKhau.Size = new System.Drawing.Size(200, 20);
-            txtMatKhau.TabIndex = 2;
-            txtMatKhau.UseSystemPasswordChar = true;
+            this.txtMatKhau.BackColor = System.Drawing.Color.Snow;
+            this.txtMatKhau.Location = new System.Drawing.Point(281, 338);
+            this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.Size = new System.Drawing.Size(200, 20);
+            this.txtMatKhau.TabIndex = 2;
+            this.txtMatKhau.UseSystemPasswordChar = true;
             // 
             // lblTiêuđề
             // 
             this.lblTiêuđề.AutoSize = true;
             this.lblTiêuđề.BackColor = System.Drawing.Color.Transparent;
             this.lblTiêuđề.Font = new System.Drawing.Font("Arial", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblTiêuđề.Location = new System.Drawing.Point(123, 22);
+            this.lblTiêuđề.Location = new System.Drawing.Point(212, 21);
             this.lblTiêuđề.Name = "lblTiêuđề";
-            this.lblTiêuđề.Size = new System.Drawing.Size(493, 41);
+            this.lblTiêuđề.Size = new System.Drawing.Size(329, 41);
             this.lblTiêuđề.TabIndex = 0;
-            this.lblTiêuđề.Text = "QUẢN LÝ HỆ THỐNG THI CỬ";
+            this.lblTiêuđề.Text = "HỆ THỐNG THI CỬ";
             this.lblTiêuđề.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtTenDangNhap
@@ -109,6 +110,27 @@ namespace QUANLYTHICU
             this.btnDangnhap.TabIndex = 7;
             this.btnDangnhap.Text = "Đăng nhập";
             this.btnDangnhap.UseVisualStyleBackColor = true;
+            this.btnDangnhap.Click += new System.EventHandler(this.btnDangnhap_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(278, 213);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 16);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Môn thi";
+            // 
+            // cbMonThi
+            // 
+            this.cbMonThi.FormattingEnabled = true;
+            this.cbMonThi.Location = new System.Drawing.Point(346, 212);
+            this.cbMonThi.Name = "cbMonThi";
+            this.cbMonThi.Size = new System.Drawing.Size(121, 21);
+            this.cbMonThi.TabIndex = 21;
+            this.cbMonThi.SelectionChangeCommitted += new System.EventHandler(this.cbMonThi_SelectionChangeCommitted);
             // 
             // frmDangNhap
             // 
@@ -118,16 +140,19 @@ namespace QUANLYTHICU
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = global::QUANLYTHICU.Properties.Resources.img_login;
             this.ClientSize = new System.Drawing.Size(718, 540);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cbMonThi);
             this.Controls.Add(this.btnDangnhap);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTenDangNhap);
-            this.Controls.Add(txtMatKhau);
+            this.Controls.Add(this.txtMatKhau);
             this.Controls.Add(this.lblTiêuđề);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "frmDangNhap";
             this.Text = "ĐĂNG NHẬP";
+            this.Load += new System.EventHandler(this.frmDangNhap_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,6 +166,9 @@ namespace QUANLYTHICU
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnDangnhap;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbMonThi;
+        private System.Windows.Forms.TextBox txtMatKhau;
     }
 }
 

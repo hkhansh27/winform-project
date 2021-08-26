@@ -68,13 +68,17 @@ namespace QUANLYTHICU
             try
             {
                 HOCSINH hocSinh = new HOCSINH();
-                //Kiểm tra môn học đã tồn tại trước khi thêm
-                 if (_hocSinhBAL.KiemTraHocSinh(txtTenDangNhap.Text, out error))
+              
+                hocSinh.HOTEN = txtHoTen.Text;
+                hocSinh.TENDANGNHAP = txtTenDangNhap.Text;
+                hocSinh.MATKHAU = txtMatKhau.Text;
+                //Kiểm tra học sinh đã tồn tại trước khi thêm
+                if (_hocSinhBAL.KiemTraHocSinh(hocSinh, out error))
                 {
                     string tenHocSinhMoi = Prompt.ShowDialog("Nhập tên học sinh mới", "Sửa học sinh");
                     string tenDangNhapMoi = Prompt.ShowDialog("Nhập tên đăng nhập mới", "Sửa học sinh");
                     string matKhauMoi = Prompt.ShowDialog("Nhập mật khẩu mới ", "Sửa học sinh");
-
+                    //Lỗiiiiiiiiiiiiiiii 
                     hocSinh.HOTEN = tenHocSinhMoi;
                     hocSinh.TENDANGNHAP = tenDangNhapMoi;
                     hocSinh.MATKHAU = matKhauMoi;
@@ -83,10 +87,7 @@ namespace QUANLYTHICU
                     TaiDanhSachHocSinh();
                     return;
                 }
-                hocSinh.HOTEN = txtHoTen.Text;
-                hocSinh.TENDANGNHAP = txtTenDangNhap.Text;
-                hocSinh.MATKHAU = txtMatKhau.Text;
-                //Thêm môn học vào db
+                //Thêm học sinh vào db
                 _hocSinhBAL.LuuHocSinh(hocSinh, out error);
                 //Tải lại danh sách
                 TaiDanhSachHocSinh();

@@ -177,7 +177,5 @@ namespace QUANLYTHICU
             var dsCauHoiTheoMon = _cauHoiBAL.LayDanhSachCauHoiTheoMon(idMonHoc);
             TaiDanhSachCauHoi(dsCauHoiTheoMon);
         }
-
-        
     }
 }

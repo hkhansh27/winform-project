@@ -17,14 +17,22 @@ namespace QUANLYTHICU.DAL
             }
 
         }
-        public bool KiemTraHocSinh(string tenDangNhap, out string error)
+        public HOCSINH LayHocSinhTheoTenDangNhap(HOCSINH hS)
+        {
+            using (var dbcontext = new QUANLITHYCU())
+            {
+               return dbcontext.HOCSINHs.SingleOrDefault(hs => hs.TENDANGNHAP == hS.TENDANGNHAP);
+            }
+
+        }
+        public bool KiemTraHocSinh(HOCSINH hS, out string error)
         {
             error = string.Empty;
             try
             {
                 using (var dbcontext = new QUANLITHYCU())
                 {
-                    return dbcontext.HOCSINHs.Any(hs => hs.TENDANGNHAP == tenDangNhap);
+                    return dbcontext.HOCSINHs.Any(hs => hs.TENDANGNHAP == hS.TENDANGNHAP && hs.MATKHAU == hS.MATKHAU);
                 }
             }
             catch (Exception exception)
@@ -35,17 +43,17 @@ namespace QUANLYTHICU.DAL
         }
         public bool CapNhatHocSinh(int idHocSinh, HOCSINH hocSinh, out string error)
         {
-            using (var db = new QUANLITHYCU())
+            using (var dbcontext = new QUANLITHYCU())
             {
                 error = string.Empty;
                 try
                 {
-                    var ketQua = db.HOCSINHs.SingleOrDefault(hs => hs.IDHOCSINH == idHocSinh);
+                    var ketQua = dbcontext.HOCSINHs.SingleOrDefault(hs => hs.IDHOCSINH == idHocSinh);
                     if (ketQua == null) return false;
                     ketQua.HOTEN = hocSinh.HOTEN;
                     ketQua.TENDANGNHAP = hocSinh.TENDANGNHAP;
                     ketQua.MATKHAU = hocSinh.MATKHAU;
-                    db.SaveChanges();
+                    dbcontext.SaveChanges();
                     return true;
                 }
                 catch (Exception ex)

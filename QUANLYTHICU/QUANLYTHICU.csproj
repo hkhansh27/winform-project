@@ -84,11 +84,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmBaiLam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBaiLam.Designer.cs">
+      <DependentUpon>frmBaiLam.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmQuanTriHocSinh.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmQuanTriHocSinh.Designer.cs">
       <DependentUpon>frmQuanTriHocSinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuanTriKetQua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuanTriKetQua.Designer.cs">
+      <DependentUpon>frmQuanTriKetQua.cs</DependentUpon>
     </Compile>
     <Compile Include="frmQuanTriMonHoc.cs">
       <SubType>Form</SubType>
@@ -111,6 +123,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\Prompt.cs" />
+    <EmbeddedResource Include="frmBaiLam.resx">
+      <DependentUpon>frmBaiLam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmQuanTriCauHoi.resx">
       <DependentUpon>frmQuanTriCauHoi.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuanTriHocSinh.resx">
       <DependentUpon>frmQuanTriHocSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuanTriKetQua.resx">
+      <DependentUpon>frmQuanTriKetQua.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuanTriMonHoc.resx">
       <DependentUpon>frmQuanTriMonHoc.cs</DependentUpon>
@@ -176,6 +194,10 @@
     <ProjectReference Include="..\QUANLYTHICU.DAL\QUANLYTHICU.DAL.csproj">
       <Project>{b1132f9f-64f6-42e1-9a10-6fdde969a2a4}</Project>
       <Name>QUANLYTHICU.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QUANLYTHICU.DTO\QUANLYTHICU.DTO.csproj">
+      <Project>{c9b6176a-2f82-4125-af9e-28e276cb3963}</Project>
+      <Name>QUANLYTHICU.DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -46,12 +46,14 @@ namespace QUANLYTHICU
             this.stt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenMon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblKetQua = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachMonHoc)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblKetQua);
             this.panel1.Controls.Add(this.lblCauHoiNavigation);
             this.panel1.Controls.Add(this.lblHocSinhNavigation);
             this.panel1.Controls.Add(this.lblMonHocNavigation);
@@ -232,6 +234,16 @@ namespace QUANLYTHICU
             this.idMH.ReadOnly = true;
             this.idMH.Visible = false;
             // 
+            // lblKetQua
+            // 
+            this.lblKetQua.AutoSize = true;
+            this.lblKetQua.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblKetQua.Location = new System.Drawing.Point(887, 15);
+            this.lblKetQua.Name = "lblKetQua";
+            this.lblKetQua.Size = new System.Drawing.Size(103, 24);
+            this.lblKetQua.TabIndex = 5;
+            this.lblKetQua.Text = "KẾT QUẢ";
+            // 
             // frmQuanTriMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -276,5 +288,6 @@ namespace QUANLYTHICU
         private System.Windows.Forms.DataGridViewTextBoxColumn stt;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenMon;
         private System.Windows.Forms.DataGridViewTextBoxColumn idMH;
+        private System.Windows.Forms.Label lblKetQua;
     }
 }

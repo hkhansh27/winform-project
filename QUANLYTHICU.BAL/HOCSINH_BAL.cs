@@ -15,14 +15,17 @@ namespace QUANLYTHICU.BAL
         {
             _hocSinhDAL = new HOCSINH_DAL();
         }
-
+        public HOCSINH LayHocSinhTheoTenDangNhap(HOCSINH hs)
+        {
+            return _hocSinhDAL.LayHocSinhTheoTenDangNhap(hs);
+        }
         public List<HOCSINH> LayDanhSachHocSinh()
         {
             return _hocSinhDAL.LayDanhSachHocSinh();
         }
-        public bool KiemTraHocSinh(string tenDangNhap, out string error)
+        public bool KiemTraHocSinh(HOCSINH hs, out string error)
         {
-            return _hocSinhDAL.KiemTraHocSinh(tenDangNhap, out error);
+            return _hocSinhDAL.KiemTraHocSinh(hs, out error);
         }
         public bool LuuHocSinh(HOCSINH hocSinh, out string error)
         {
