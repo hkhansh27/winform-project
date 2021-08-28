@@ -40,7 +40,6 @@ namespace QUANLYTHICU
                 dgvKetQua.Rows[indexRow].Cells[2].Value = kq.tenMonHoc;
                 dgvKetQua.Rows[indexRow].Cells[3].Value = kq.diem;
                 dgvKetQua.Rows[indexRow].Cells[4].Value = kq.trangThai;
-              
             }
             dgvKetQua.Rows[0].Selected = false;
         }
@@ -66,5 +65,10 @@ namespace QUANLYTHICU
             this.Close();
         }
 
+        private void btnXuatRp_Click(object sender, EventArgs e)
+        {
+            var frmRp = new frmRpKq();
+            frmRp.ShowDialog();
+        }
     }
 }

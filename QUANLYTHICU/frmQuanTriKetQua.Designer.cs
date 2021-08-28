@@ -43,6 +43,7 @@ namespace QUANLYTHICU
             this.diem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnXuatRp = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKetQua)).BeginInit();
             this.SuspendLayout();
@@ -130,10 +131,10 @@ namespace QUANLYTHICU
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvKetQua.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvKetQua.Location = new System.Drawing.Point(1, 198);
+            this.dgvKetQua.Location = new System.Drawing.Point(1, 263);
             this.dgvKetQua.Name = "dgvKetQua";
             this.dgvKetQua.ReadOnly = true;
-            this.dgvKetQua.Size = new System.Drawing.Size(1352, 628);
+            this.dgvKetQua.Size = new System.Drawing.Size(1352, 557);
             this.dgvKetQua.TabIndex = 23;
             // 
             // stt
@@ -177,12 +178,26 @@ namespace QUANLYTHICU
             this.label1.TabIndex = 24;
             this.label1.Text = "KẾT QUẢ";
             // 
+            // btnXuatRp
+            // 
+            this.btnXuatRp.AutoSize = true;
+            this.btnXuatRp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnXuatRp.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXuatRp.Location = new System.Drawing.Point(557, 195);
+            this.btnXuatRp.Name = "btnXuatRp";
+            this.btnXuatRp.Size = new System.Drawing.Size(135, 29);
+            this.btnXuatRp.TabIndex = 25;
+            this.btnXuatRp.Text = "XUẤT REPORT";
+            this.btnXuatRp.UseVisualStyleBackColor = true;
+            this.btnXuatRp.Click += new System.EventHandler(this.btnXuatRp_Click);
+            // 
             // frmQuanTriKetQua
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gold;
             this.ClientSize = new System.Drawing.Size(1348, 821);
+            this.Controls.Add(this.btnXuatRp);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvKetQua);
             this.Controls.Add(this.panel1);
@@ -213,5 +228,6 @@ namespace QUANLYTHICU
         private System.Windows.Forms.DataGridViewTextBoxColumn monThi;
         private System.Windows.Forms.DataGridViewTextBoxColumn diem;
         private System.Windows.Forms.DataGridViewTextBoxColumn trangThai;
+        private System.Windows.Forms.Button btnXuatRp;
     }
 }
