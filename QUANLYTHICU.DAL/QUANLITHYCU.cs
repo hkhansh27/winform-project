@@ -21,11 +21,6 @@ namespace QUANLYTHICU.DAL
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CAUHOI>()
-                .HasMany(e => e.CHITIETCAUHOIs)
-                .WithRequired(e => e.CAUHOI)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<HOCSINH>()
                 .Property(e => e.TENDANGNHAP)
                 .IsUnicode(false);
@@ -34,29 +29,9 @@ namespace QUANLYTHICU.DAL
                 .Property(e => e.MATKHAU)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<HOCSINH>()
-                .HasMany(e => e.CHITIETCAUHOIs)
-                .WithRequired(e => e.HOCSINH)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<HOCSINH>()
-                .HasMany(e => e.CHITIETMONHOCs)
-                .WithRequired(e => e.HOCSINH)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<MONHOC>()
                 .Property(e => e.MONHOC1)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<MONHOC>()
-                .HasMany(e => e.CAUHOIs)
-                .WithRequired(e => e.MONHOC)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<MONHOC>()
-                .HasMany(e => e.CHITIETMONHOCs)
-                .WithRequired(e => e.MONHOC)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<NGUOIQUANLY>()
                 .Property(e => e.TENDANGNHAP)

@@ -34,6 +34,7 @@ namespace QUANLYTHICU
             this.lblMonHoc = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnBaiLam = new System.Windows.Forms.Panel();
+            this.lblMonThi = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnNopBai
@@ -86,6 +87,15 @@ namespace QUANLYTHICU
             this.pnBaiLam.Size = new System.Drawing.Size(1344, 730);
             this.pnBaiLam.TabIndex = 24;
             // 
+            // lblMonThi
+            // 
+            this.lblMonThi.AutoSize = true;
+            this.lblMonThi.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMonThi.Location = new System.Drawing.Point(1158, 9);
+            this.lblMonThi.Name = "lblMonThi";
+            this.lblMonThi.Size = new System.Drawing.Size(0, 19);
+            this.lblMonThi.TabIndex = 25;
+            // 
             // frmBaiLam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -93,6 +103,7 @@ namespace QUANLYTHICU
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.Gold;
             this.ClientSize = new System.Drawing.Size(1348, 821);
+            this.Controls.Add(this.lblMonThi);
             this.Controls.Add(this.pnBaiLam);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblMonHoc);
@@ -115,5 +126,6 @@ namespace QUANLYTHICU
         private System.Windows.Forms.Label lblMonHoc;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnBaiLam;
+        private System.Windows.Forms.Label lblMonThi;
     }
 }

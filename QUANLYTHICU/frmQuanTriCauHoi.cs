@@ -18,12 +18,14 @@ namespace QUANLYTHICU
         private readonly MONHOC_BAL _monHocBAL;
         private readonly CAUHOI_BAL _cauHoiBAL;
         private List<CAUHOI> danhSachCauHoi;
+        private List<MONHOC> danhSachMonThi;
         private int idCauHoi, idMonHoc;
         public frmQuanTriCauHoi()
         {
             InitializeComponent();
             _monHocBAL = new MONHOC_BAL();
             _cauHoiBAL = new CAUHOI_BAL();
+            danhSachMonThi = _monHocBAL.LayDanhSachMonHoc();
             Load += FrmQuanTriCauHoi_Load;
         }
         
@@ -35,9 +37,10 @@ namespace QUANLYTHICU
         private void frmQuanTriCauHoi_Load(object sender, EventArgs e)
         {
             //mặc định idmonhoc là giá trị đầu tiên khi load
-           idMonHoc = _monHocBAL.LayDanhSachMonHoc().FirstOrDefault().IDMONHOC;
+            if (danhSachMonThi.Count == 0) return;
+            idMonHoc = danhSachMonThi[0].IDMONHOC;
 
-           cbMonHoc.DataSource = _monHocBAL.LayDanhSachMonHoc();
+            cbMonHoc.DataSource = danhSachMonThi;
            cbMonHoc.DisplayMember = "MONHOC1";
            cbMonHoc.ValueMember = "IDMONHOC";
         }
@@ -65,20 +68,22 @@ namespace QUANLYTHICU
         }
         private void dgvDanhSachCauHoi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvDanhSachCauHoi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-            {
-                dgvDanhSachCauHoi.CurrentRow.Selected = true;
-                txtCauHoi.Text = dgvDanhSachCauHoi.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
-                txtTraLoi1.Text = dgvDanhSachCauHoi.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
-                txtTraLoi2.Text = dgvDanhSachCauHoi.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
-                txtTraLoi3.Text = dgvDanhSachCauHoi.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
-                txtDapAn.Text = dgvDanhSachCauHoi.Rows[e.RowIndex].Cells[5].FormattedValue.ToString();
-                idCauHoi = int.Parse(dgvDanhSachCauHoi.Rows[e.RowIndex].Cells[6].FormattedValue.ToString());
-                idMonHoc = int.Parse(dgvDanhSachCauHoi.Rows[e.RowIndex].Cells[7].FormattedValue.ToString());
-            }
+            if (e.RowIndex == -1) return;
+            if (dgvDanhSachCauHoi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null) return;
+
+            dgvDanhSachCauHoi.CurrentRow.Selected = true;
+            txtCauHoi.Text = dgvDanhSachCauHoi.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
+            txtTraLoi1.Text = dgvDanhSachCauHoi.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
+            txtTraLoi2.Text = dgvDanhSachCauHoi.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
+            txtTraLoi3.Text = dgvDanhSachCauHoi.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
+            txtDapAn.Text = dgvDanhSachCauHoi.Rows[e.RowIndex].Cells[5].FormattedValue.ToString();
+            idCauHoi = int.Parse(dgvDanhSachCauHoi.Rows[e.RowIndex].Cells[6].FormattedValue.ToString());
+            idMonHoc = int.Parse(dgvDanhSachCauHoi.Rows[e.RowIndex].Cells[7].FormattedValue.ToString());
         }
         private void btnThemSuaCauHoi_Click(object sender, EventArgs e)
         {
+            if (txtDapAn.Text == "" || txtTraLoi1.Text == "" || txtTraLoi2.Text == "" || txtTraLoi3.Text == "") { MessageBox.Show("Không được để trống 1 trong 4 trường!"); return; }
+            if (txtDapAn.Text != txtTraLoi1.Text && txtDapAn.Text != txtTraLoi2.Text && txtDapAn.Text != txtTraLoi3.Text) { MessageBox.Show("Đáp án phải trùng 1 trong 3 trả lời!"); return; }
             string error;
             try
             {
@@ -150,22 +155,31 @@ namespace QUANLYTHICU
             txtTraLoi2.Text ="";
             txtTraLoi3.Text = "";
             txtDapAn.Text = "";
+            idCauHoi = -1;
             //Tải lại danh sách
             danhSachCauHoi = _cauHoiBAL.LayDanhSachCauHoi();
             TaiDanhSachCauHoi(danhSachCauHoi);
         }
         private void lblHocSinhNavigation_Click(object sender, EventArgs e)
         {
-            frmQuanTriHocSinh frmQuanTriHocSinh = new frmQuanTriHocSinh();
+            var frmQuanTriHocSinh = new frmQuanTriHocSinh();
             this.Hide();
             frmQuanTriHocSinh.ShowDialog();
             this.Close();
         }
         private void lblMonHocNavigation_Click(object sender, EventArgs e)
         {
-            frmQuanTriMonHoc frmQuanTriMonHoc = new frmQuanTriMonHoc();
+            var frmQuanTriMonHoc = new frmQuanTriMonHoc();
             this.Hide();
             frmQuanTriMonHoc.ShowDialog();
+            this.Close();
+        }
+
+        private void lblKetQua_Click(object sender, EventArgs e)
+        {
+            var frmQuanTriKetQua = new frmQuanTriKetQua();
+            this.Hide();
+            frmQuanTriKetQua.ShowDialog();
             this.Close();
         }
 

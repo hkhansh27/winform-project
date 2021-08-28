@@ -18,9 +18,9 @@ namespace QUANLYTHICU
         private readonly CHITIETCAUHOI_BAL _chiTietCauHoiBAL;
         private readonly CHITIETMONHOC_BAL _chiTietMonHocBAL;
         List<CAUHOI> danhSachCauHoi;
-        private int idHocSinh, idMonThi, diem;
-        private int soCauHoi = 4;
-        public frmBaiLam(int IDMonThi, int idHocSinh)
+        private int idHocSinh, idMonThi, diem, soCauHoi = 5;
+        private string tenMon;
+        public frmBaiLam(int IDMonThi, int idHocSinh, string tenMon)
         {
             InitializeComponent();
             _cauHoiBAL = new CAUHOI_BAL();
@@ -29,15 +29,15 @@ namespace QUANLYTHICU
             danhSachCauHoi = _cauHoiBAL.LayDanhSachCauHoiTheoMon(IDMonThi);
             this.idMonThi = IDMonThi;
             this.idHocSinh = idHocSinh;
+            this.tenMon = tenMon;
         }
         private void frmBaiLam_Load(object sender, EventArgs e)
         {
             KhoiTaoCauHoi();
         }
-
         private void KhoiTaoCauHoi()
         {
-           
+            lblMonThi.Text = tenMon;
             List<string> cauHoi = new List<string>();
             List<string> traLoi1 = new List<string>();
             List<string> traLoi2 = new List<string>();
@@ -59,42 +59,48 @@ namespace QUANLYTHICU
             RadioButton rb;
             int tabIndexGB = 24;
             int tabIndexRB = 50;
-            int X = 334; //300
+            int X = 275; //300
             int Y = 23;
             int tl1 = 0;
             int tl2 = 0;
             int tl3 = 0;
-            for (int i = 0; i < soCauHoi; i++)
+            string thongBao = "Hiện tại đề chưa đủ " + soCauHoi + " câu hỏi của môn học này!";
+            if (cauHoi.Count < soCauHoi)
             {
-                gb = new GroupBox();
-                gb.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-                gb.Location = new System.Drawing.Point((i * X) + 9, 43);
-                gb.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-                gb.Size = new System.Drawing.Size(200, 101);
-                gb.Name = "gb" + i;
-                gb.Tag = idCauHoi[i];
-                gb.TabIndex = ++tabIndexGB;
-                gb.TabStop = false;
-                gb.AutoSize = true;
-                gb.Text = cauHoi[i];
-                for (int j = 0; j < 3; j++)
+                MessageBox.Show(thongBao, "Lỗi");
+                return;
+            }
+                for (int i = 0; i < soCauHoi; i++)
                 {
-                    rb = new RadioButton();
-                    rb.AutoSize = true;
-                    rb.Location = new System.Drawing.Point(6, (j * Y) + 19);
-                    rb.Name = "rb" + i + "0" + j;
-                    rb.Size = new System.Drawing.Size(85, 17);
-                    rb.TabIndex = ++tabIndexRB;
-                    rb.UseVisualStyleBackColor = true;
-                    rb.TabStop = true;
-                    rb.Tag = dapAn[i];
-                    if(j == 0) rb.Text = traLoi1[tl1++];
+                    gb = new GroupBox();
+                    gb.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+                    gb.Location = new System.Drawing.Point((i * X) + 9, 275);
+                    gb.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+                    gb.Size = new System.Drawing.Size(200, 101);
+                    gb.Name = "gb" + i;
+                    gb.Tag = idCauHoi[i];
+                    gb.TabIndex = ++tabIndexGB;
+                    gb.TabStop = false;
+                    gb.AutoSize = true;
+                    gb.Text = cauHoi[i];
+                    for (int j = 0; j < 3; j++)
+                    {
+                        rb = new RadioButton();
+                        rb.AutoSize = true;
+                        rb.Location = new System.Drawing.Point(6, (j * Y) + 60);
+                        rb.Name = "rb" + i + "0" + j;
+                        rb.Size = new System.Drawing.Size(85, 17);
+                        rb.TabIndex = ++tabIndexRB;
+                        rb.UseVisualStyleBackColor = true;
+                        rb.TabStop = true;
+                        rb.Tag = dapAn[i];
+                    if (j == 0) rb.Text = traLoi1[tl1++];
                     if (j == 1) rb.Text = traLoi2[tl2++];
                     if (j == 2) rb.Text = traLoi3[tl3++];
                     gb.Controls.Add(rb);
+                    }
+                    pnBaiLam.Controls.Add(gb);
                 }
-                pnBaiLam.Controls.Add(gb);
-            }
         }
         private void btnNopBai_Click(object sender, EventArgs e)
         {
@@ -103,6 +109,7 @@ namespace QUANLYTHICU
             CHITIETCAUHOI ctCauHoi;
             CHITIETMONHOC ctMonHoc;
             int soCauDung = 0;
+            //kiểm tra câu trả lời đúng hay không
             foreach (Control gb in pnBaiLam.Controls)
             {
                 GroupBox groupBox = (GroupBox)gb;
@@ -120,6 +127,7 @@ namespace QUANLYTHICU
                     } 
                 }
                 ctCauHoi.TRANGTHAI = trangThai;
+                //lưu chi tiết câu hỏi
                 try
                 {
                     _chiTietCauHoiBAL.LuuChiTietCauHoi(ctCauHoi, out error); 
@@ -129,6 +137,7 @@ namespace QUANLYTHICU
                     MessageBox.Show(ex.Message);
                 }
             }
+            //lưu chi tiết môn học
             diem = soCauDung * 10 / soCauHoi;
             ctMonHoc = new CHITIETMONHOC();
             ctMonHoc.IDHOCSINH = idHocSinh;
@@ -136,6 +145,13 @@ namespace QUANLYTHICU
             ctMonHoc.DIEM = diem;
             ctMonHoc.TRANGTHAI = diem > 5 ? "Đạt" : "Rớt";
             _chiTietMonHocBAL.LuuChiTietMonHoc(ctMonHoc, out error);
+            //Có muốn quay về trang đăng nhập hay không?
+            var luaChon = MessageBox.Show("Nộp bài thành công, bạn có muốn quay về trang đăng nhập không?", "Thông báo", MessageBoxButtons.YesNo);
+            if (luaChon == DialogResult.No) return;
+            //Về đăng nhập
+            var frmDangNhap = new frmDangNhap();
+            this.Hide();
+            frmDangNhap.ShowDialog();
             this.Close();
         }
 

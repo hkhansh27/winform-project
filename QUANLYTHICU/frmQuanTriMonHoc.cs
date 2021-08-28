@@ -49,15 +49,17 @@ namespace QUANLYTHICU
         }
         private void dgvDanhSachMonHoc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvDanhSachMonHoc.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-            {
-                dgvDanhSachMonHoc.CurrentRow.Selected = true;
-                txtTenMon.Text = dgvDanhSachMonHoc.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
-                idMonHoc = int.Parse(dgvDanhSachMonHoc.Rows[e.RowIndex].Cells[2].FormattedValue.ToString());
-            }
+            if (e.RowIndex == -1) return;
+            if (dgvDanhSachMonHoc.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null) return;
+
+            dgvDanhSachMonHoc.CurrentRow.Selected = true;
+            txtTenMon.Text = dgvDanhSachMonHoc.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
+            idMonHoc = int.Parse(dgvDanhSachMonHoc.Rows[e.RowIndex].Cells[2].FormattedValue.ToString());
+               
         }
         private void btnThemSuaMonHoc_Click(object sender, EventArgs e)
         {
+            if(txtTenMon.Text == "") { MessageBox.Show("Không được để trống trường này!"); return; }
             string error;
             try
             {
@@ -112,7 +114,7 @@ namespace QUANLYTHICU
 
         private void lblHocSinhNavigation_Click(object sender, EventArgs e)
         {
-            frmQuanTriHocSinh frmQuanTriHocSinh = new frmQuanTriHocSinh();
+            var frmQuanTriHocSinh = new frmQuanTriHocSinh();
             this.Hide();
             frmQuanTriHocSinh.ShowDialog();
             this.Close();
@@ -120,9 +122,17 @@ namespace QUANLYTHICU
 
         private void lblCauHoiNavigation_Click(object sender, EventArgs e)
         {
-            frmQuanTriCauHoi frmQuanTriCauHoi = new frmQuanTriCauHoi();
+            var frmQuanTriCauHoi = new frmQuanTriCauHoi();
             this.Hide();
             frmQuanTriCauHoi.ShowDialog();
+            this.Close();
+        }
+
+        private void lblKetQua_Click(object sender, EventArgs e)
+        {
+            var frmQuanTriKetQua = new frmQuanTriKetQua();
+            this.Hide();
+            frmQuanTriKetQua.ShowDialog();
             this.Close();
         }
     }

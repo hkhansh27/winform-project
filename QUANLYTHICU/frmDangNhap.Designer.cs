@@ -46,7 +46,7 @@ namespace QUANLYTHICU
             this.txtMatKhau.Location = new System.Drawing.Point(281, 338);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(200, 20);
-            this.txtMatKhau.TabIndex = 2;
+            this.txtMatKhau.TabIndex = 3;
             this.txtMatKhau.UseSystemPasswordChar = true;
             // 
             // lblTiêuđề
@@ -67,7 +67,7 @@ namespace QUANLYTHICU
             this.txtTenDangNhap.Location = new System.Drawing.Point(281, 273);
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(200, 20);
-            this.txtTenDangNhap.TabIndex = 3;
+            this.txtTenDangNhap.TabIndex = 2;
             // 
             // label1
             // 
@@ -107,7 +107,7 @@ namespace QUANLYTHICU
             this.btnDangnhap.Location = new System.Drawing.Point(319, 388);
             this.btnDangnhap.Name = "btnDangnhap";
             this.btnDangnhap.Size = new System.Drawing.Size(125, 50);
-            this.btnDangnhap.TabIndex = 7;
+            this.btnDangnhap.TabIndex = 4;
             this.btnDangnhap.Text = "Đăng nhập";
             this.btnDangnhap.UseVisualStyleBackColor = true;
             this.btnDangnhap.Click += new System.EventHandler(this.btnDangnhap_Click);

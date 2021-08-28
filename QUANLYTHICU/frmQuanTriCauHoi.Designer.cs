@@ -35,6 +35,7 @@ namespace QUANLYTHICU
             this.lblMonHocNavigation = new System.Windows.Forms.Label();
             this.lblHocSinhNavigation = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblKetQua = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLamMoiCauHoi = new System.Windows.Forms.Button();
             this.btnXoaCauHoi = new System.Windows.Forms.Button();
@@ -66,7 +67,6 @@ namespace QUANLYTHICU
             this.dapAn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idCH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblKetQua = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachCauHoi)).BeginInit();
@@ -114,6 +114,17 @@ namespace QUANLYTHICU
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1345, 64);
             this.panel1.TabIndex = 4;
+            // 
+            // lblKetQua
+            // 
+            this.lblKetQua.AutoSize = true;
+            this.lblKetQua.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblKetQua.Location = new System.Drawing.Point(860, 17);
+            this.lblKetQua.Name = "lblKetQua";
+            this.lblKetQua.Size = new System.Drawing.Size(103, 24);
+            this.lblKetQua.TabIndex = 4;
+            this.lblKetQua.Text = "KẾT QUẢ";
+            this.lblKetQua.Click += new System.EventHandler(this.lblKetQua_Click);
             // 
             // panel2
             // 
@@ -452,16 +463,6 @@ namespace QUANLYTHICU
             this.IDMH.Name = "IDMH";
             this.IDMH.ReadOnly = true;
             this.IDMH.Visible = false;
-            // 
-            // lblKetQua
-            // 
-            this.lblKetQua.AutoSize = true;
-            this.lblKetQua.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblKetQua.Location = new System.Drawing.Point(860, 17);
-            this.lblKetQua.Name = "lblKetQua";
-            this.lblKetQua.Size = new System.Drawing.Size(103, 24);
-            this.lblKetQua.TabIndex = 4;
-            this.lblKetQua.Text = "KẾT QUẢ";
             // 
             // frmQuanTriCauHoi
             // 

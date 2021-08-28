@@ -44,7 +44,27 @@ namespace QUANLYTHICU
             }
             dgvKetQua.Rows[0].Selected = false;
         }
+        private void lblHocSinhNavigation_Click(object sender, EventArgs e)
+        {
+            var frmQuanTriHocSinh = new frmQuanTriHocSinh();
+            this.Hide();
+            frmQuanTriHocSinh.ShowDialog();
+            this.Close();
+        }
+        private void lblMonHocNavigation_Click(object sender, EventArgs e)
+        {
+            var frmQuanTriMonHoc = new frmQuanTriMonHoc();
+            this.Hide();
+            frmQuanTriMonHoc.ShowDialog();
+            this.Close();
+        }
+        private void lblCauHoiNavigation_Click(object sender, EventArgs e)
+        {
+            var frmQuanTriCauHoi = new frmQuanTriCauHoi();
+            this.Hide();
+            frmQuanTriCauHoi.ShowDialog();
+            this.Close();
+        }
 
-       
     }
 }

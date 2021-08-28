@@ -23,9 +23,6 @@ namespace QUANLYTHICU
             _hocSinhBAL = new HOCSINH_BAL();
             Load += FrmQuanTriHocSinh_Load;
         }
-        
-      
-
         private void FrmQuanTriHocSinh_Load(object sender, EventArgs e)
         {
             btnLamMoiHocSinh.PerformClick();
@@ -45,7 +42,7 @@ namespace QUANLYTHICU
                 dgvDanhSachHocSinh.Rows[indexRow].Cells[0].Value = soThuTu++;
                 dgvDanhSachHocSinh.Rows[indexRow].Cells[1].Value = hs.HOTEN;
                 dgvDanhSachHocSinh.Rows[indexRow].Cells[2].Value = hs.TENDANGNHAP;
-                dgvDanhSachHocSinh.Rows[indexRow].Cells[3].Value = hs.MATKHAU;
+                dgvDanhSachHocSinh.Rows[indexRow].Cells[3].Value = md5.Decrypt(hs.MATKHAU);
                 dgvDanhSachHocSinh.Rows[indexRow].Cells[4].Value = hs.IDHOCSINH;
             }
             dgvDanhSachHocSinh.Rows[0].Selected = false;
@@ -53,17 +50,18 @@ namespace QUANLYTHICU
         }
         private void dgvDanhSachHocSinh_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvDanhSachHocSinh.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-            {
-                dgvDanhSachHocSinh.CurrentRow.Selected = true;
-                txtHoTen.Text = dgvDanhSachHocSinh.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
-                txtTenDangNhap.Text = dgvDanhSachHocSinh.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
-                txtMatKhau.Text = dgvDanhSachHocSinh.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
-                idHocSinh = int.Parse(dgvDanhSachHocSinh.Rows[e.RowIndex].Cells[4].FormattedValue.ToString());
-            }
+            if (e.RowIndex == -1) return;
+            if (dgvDanhSachHocSinh.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null) return;
+
+            dgvDanhSachHocSinh.CurrentRow.Selected = true;
+            txtHoTen.Text = dgvDanhSachHocSinh.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
+            txtTenDangNhap.Text = dgvDanhSachHocSinh.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
+            txtMatKhau.Text = dgvDanhSachHocSinh.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
+            idHocSinh = int.Parse(dgvDanhSachHocSinh.Rows[e.RowIndex].Cells[4].FormattedValue.ToString());
         }
         private void btnThemSuaHocSinh_Click(object sender, EventArgs e)
         {
+            if(txtHoTen.Text == "" || txtTenDangNhap.Text == "" | txtMatKhau.Text == "") { MessageBox.Show("Không được để trống 1 trong 3 trường này"); return; }
             string error;
             try
             {
@@ -71,17 +69,17 @@ namespace QUANLYTHICU
               
                 hocSinh.HOTEN = txtHoTen.Text;
                 hocSinh.TENDANGNHAP = txtTenDangNhap.Text;
-                hocSinh.MATKHAU = txtMatKhau.Text;
+                hocSinh.MATKHAU = md5.Encrypt(txtMatKhau.Text);
                 //Kiểm tra học sinh đã tồn tại trước khi thêm
                 if (_hocSinhBAL.KiemTraHocSinh(hocSinh, out error))
                 {
                     string tenHocSinhMoi = Prompt.ShowDialog("Nhập tên học sinh mới", "Sửa học sinh");
                     string tenDangNhapMoi = Prompt.ShowDialog("Nhập tên đăng nhập mới", "Sửa học sinh");
                     string matKhauMoi = Prompt.ShowDialog("Nhập mật khẩu mới ", "Sửa học sinh");
-                    //Lỗiiiiiiiiiiiiiiii 
+                  
                     hocSinh.HOTEN = tenHocSinhMoi;
                     hocSinh.TENDANGNHAP = tenDangNhapMoi;
-                    hocSinh.MATKHAU = matKhauMoi;
+                    hocSinh.MATKHAU = md5.Encrypt(matKhauMoi);
                     if (_hocSinhBAL.CapNhatHocSinh(idHocSinh, hocSinh, out error))
                         MessageBox.Show("Cập nhật!", "Sửa học sinh");
                     TaiDanhSachHocSinh();
@@ -105,11 +103,14 @@ namespace QUANLYTHICU
             try
             {
                 if (idHocSinh == 0) { MessageBox.Show("Rỗng, không xoá được!", "Xoá học sinh"); return; }
-                _hocSinhBAL.XoaHocSinh(idHocSinh, out error);
+                if (_hocSinhBAL.XoaHocSinh(idHocSinh, out error))
+                {
+                    TaiDanhSachHocSinh();
+                    MessageBox.Show("Xoá thành công!", "Xoá học sinh");
+                }
                 idHocSinh = 0;
                 //Tải lại danh sách
-                TaiDanhSachHocSinh();
-                MessageBox.Show("Xoá thành công!", "Xoá học sinh");
+                
             }
             catch (Exception ex)
             {
@@ -122,23 +123,31 @@ namespace QUANLYTHICU
             txtHoTen.Text = "";
             txtTenDangNhap.Text = "";
             txtMatKhau.Text = "";
+            idHocSinh = -1;
             TaiDanhSachHocSinh();
         }
 
         private void lblMonHocNavigation_Click(object sender, EventArgs e)
         {
-            frmQuanTriMonHoc frmQuanTriMonHoc = new frmQuanTriMonHoc();
+            var frmQuanTriMonHoc = new frmQuanTriMonHoc();
             this.Hide();
             frmQuanTriMonHoc.ShowDialog();
             this.Close();
         }
         private void lblCauHoiNavigation_Click(object sender, EventArgs e)
         {
-            frmQuanTriCauHoi frmQuanTriCauHoi = new frmQuanTriCauHoi();
+            var frmQuanTriCauHoi = new frmQuanTriCauHoi();
             this.Hide();
             frmQuanTriCauHoi.ShowDialog();
             this.Close();
         }
 
+        private void lblKetQua_Click(object sender, EventArgs e)
+        {
+            var frmQuanTriKetQua = new frmQuanTriKetQua();
+            this.Hide();
+            frmQuanTriKetQua.ShowDialog();
+            this.Close();
+        }
     }
 }

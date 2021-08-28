@@ -53,17 +53,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CAUHOI_DAL.cs" />
-    <Compile Include="CHITIETMONHOC_DAL.cs" />
-    <Compile Include="CHITIETCAUHOI_DAL.cs" />
-    <Compile Include="NGUOIQUANLY_DAL.cs" />
     <Compile Include="THUCTHE\CAUHOI.cs" />
+    <Compile Include="CAUHOI_DAL.cs" />
     <Compile Include="THUCTHE\CHITIETCAUHOI.cs" />
     <Compile Include="THUCTHE\CHITIETMONHOC.cs" />
+    <Compile Include="CHITIETMONHOC_DAL.cs" />
+    <Compile Include="CHITIETCAUHOI_DAL.cs" />
     <Compile Include="THUCTHE\HOCSINH.cs" />
-    <Compile Include="HOCSINH_DAL.cs" />
     <Compile Include="THUCTHE\MONHOC.cs" />
     <Compile Include="THUCTHE\NGUOIQUANLY.cs" />
+    <Compile Include="NGUOIQUANLY_DAL.cs" />
+    <Compile Include="HOCSINH_DAL.cs" />
     <Compile Include="MONHOC_DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QUANLITHYCU.cs" />
@@ -78,6 +78,7 @@
       <Name>QUANLYTHICU.DTO</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

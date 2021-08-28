@@ -29,9 +29,10 @@ namespace QUANLYTHICU
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblKetQua = new System.Windows.Forms.Label();
             this.lblCauHoiNavigation = new System.Windows.Forms.Label();
             this.lblHocSinhNavigation = new System.Windows.Forms.Label();
             this.lblMonHocNavigation = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@ namespace QUANLYTHICU
             this.tenDangNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.matKhau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idHS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblKetQua = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachHocSinh)).BeginInit();
             this.SuspendLayout();
@@ -69,6 +69,17 @@ namespace QUANLYTHICU
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1345, 64);
             this.panel1.TabIndex = 5;
+            // 
+            // lblKetQua
+            // 
+            this.lblKetQua.AutoSize = true;
+            this.lblKetQua.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblKetQua.Location = new System.Drawing.Point(870, 16);
+            this.lblKetQua.Name = "lblKetQua";
+            this.lblKetQua.Size = new System.Drawing.Size(103, 24);
+            this.lblKetQua.TabIndex = 5;
+            this.lblKetQua.Text = "KẾT QUẢ";
+            this.lblKetQua.Click += new System.EventHandler(this.lblKetQua_Click);
             // 
             // lblCauHoiNavigation
             // 
@@ -251,14 +262,14 @@ namespace QUANLYTHICU
             this.dgvDanhSachHocSinh.BackgroundColor = System.Drawing.Color.Khaki;
             this.dgvDanhSachHocSinh.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDanhSachHocSinh.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDanhSachHocSinh.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDanhSachHocSinh.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDanhSachHocSinh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDanhSachHocSinh.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.stt,
@@ -267,14 +278,14 @@ namespace QUANLYTHICU
             this.matKhau,
             this.idHS});
             this.dgvDanhSachHocSinh.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ScrollBar;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDanhSachHocSinh.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ScrollBar;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDanhSachHocSinh.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDanhSachHocSinh.Location = new System.Drawing.Point(0, 279);
             this.dgvDanhSachHocSinh.Name = "dgvDanhSachHocSinh";
             this.dgvDanhSachHocSinh.ReadOnly = true;
@@ -316,16 +327,6 @@ namespace QUANLYTHICU
             this.idHS.Name = "idHS";
             this.idHS.ReadOnly = true;
             this.idHS.Visible = false;
-            // 
-            // lblKetQua
-            // 
-            this.lblKetQua.AutoSize = true;
-            this.lblKetQua.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblKetQua.Location = new System.Drawing.Point(870, 16);
-            this.lblKetQua.Name = "lblKetQua";
-            this.lblKetQua.Size = new System.Drawing.Size(103, 24);
-            this.lblKetQua.TabIndex = 5;
-            this.lblKetQua.Text = "KẾT QUẢ";
             // 
             // frmQuanTriHocSinh
             // 
