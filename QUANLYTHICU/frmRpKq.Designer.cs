@@ -30,7 +30,7 @@ namespace QUANLYTHICU
         private void InitializeComponent()
         {
             this.btnThoat = new System.Windows.Forms.Button();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.rpKq = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
             // btnThoat
@@ -44,13 +44,13 @@ namespace QUANLYTHICU
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // reportViewer1
+            // rpKq
             // 
-            this.reportViewer1.Location = new System.Drawing.Point(-3, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(802, 389);
-            this.reportViewer1.TabIndex = 1;
+            this.rpKq.Location = new System.Drawing.Point(-3, 0);
+            this.rpKq.Name = "rpKq";
+            this.rpKq.ServerReport.BearerToken = null;
+            this.rpKq.Size = new System.Drawing.Size(802, 389);
+            this.rpKq.TabIndex = 1;
             // 
             // frmRpKq
             // 
@@ -59,11 +59,11 @@ namespace QUANLYTHICU
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gold;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.reportViewer1);
+            this.Controls.Add(this.rpKq);
             this.Controls.Add(this.btnThoat);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmRpKq";
-            this.Text = "frmRpKq";
+            this.Text = "trjrtj";
             this.Load += new System.EventHandler(this.frmRpKq_Load);
             this.ResumeLayout(false);
 
@@ -72,6 +72,6 @@ namespace QUANLYTHICU
         #endregion
 
         private System.Windows.Forms.Button btnThoat;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private Microsoft.Reporting.WinForms.ReportViewer rpKq;
     }
 }

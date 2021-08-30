@@ -23,13 +23,13 @@ namespace QUANLYTHICU
 
         private void frmRpKq_Load(object sender, EventArgs e)
         {
-            reportViewer1.Visible = true;
-            reportViewer1.RefreshReport();
-            this.reportViewer1.LocalReport.ReportPath = ("./ReportDsKetQua/RpDsKetQua.rdlc");
+            rpKq.Visible = true;
+            rpKq.RefreshReport();
+            this.rpKq.LocalReport.ReportPath = ("./ReportDsKetQua/RpDsKetQua.rdlc");
             var ReportDataSource = new ReportDataSource("KETQUADATASET", _chiTietMonHocBAL.LayDanhSachKetQua());
-            this.reportViewer1.LocalReport.DataSources.Clear();
-            this.reportViewer1.LocalReport.DataSources.Add(ReportDataSource);
-            this.reportViewer1.RefreshReport();
+            this.rpKq.LocalReport.DataSources.Clear();
+            this.rpKq.LocalReport.DataSources.Add(ReportDataSource);
+            this.rpKq.RefreshReport();
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
